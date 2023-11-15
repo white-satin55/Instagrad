@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagrad.Domain", "Instagrad.Domain\Instagrad.Domain.csproj", "{7F086FEA-51FD-4967-8C68-FDBC078C83E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagrad.Infrastructure", "Instagrad.Infrastructure\Instagrad.Infrastructure.csproj", "{D31B8664-D91B-457D-BF30-DF084B80C204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagrad.WebApi", "Instagrad.WebApi\Instagrad.WebApi.csproj", "{41E97028-39E4-4D40-BFEF-E0D704DE6421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F086FEA-51FD-4967-8C68-FDBC078C83E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F086FEA-51FD-4967-8C68-FDBC078C83E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F086FEA-51FD-4967-8C68-FDBC078C83E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F086FEA-51FD-4967-8C68-FDBC078C83E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31B8664-D91B-457D-BF30-DF084B80C204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31B8664-D91B-457D-BF30-DF084B80C204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31B8664-D91B-457D-BF30-DF084B80C204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31B8664-D91B-457D-BF30-DF084B80C204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E97028-39E4-4D40-BFEF-E0D704DE6421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E97028-39E4-4D40-BFEF-E0D704DE6421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E97028-39E4-4D40-BFEF-E0D704DE6421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E97028-39E4-4D40-BFEF-E0D704DE6421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

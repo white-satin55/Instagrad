@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ugnocX1B6mD2H9QNDcsKt+syqs3cQuWjpom1KhgeGmySArENObcdwvT/AJlWMgMSrgBE9f8LT06HRlJPTD3G3A==",
+  "dgSpecHash": "wnN3BBk2zgDmppLOOEvu1s629LAD/Ll3tHGnARHJxouxqvGW7WCrb85jL/MdBnoWdL8OOqfH1DXJvB5eR2MQ/w==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.WebApi\\Instagrad.WebApi.csproj",
+  "projectFilePath": "D:\\Projects\\Instagrad\\api\\Instagrad.WebApi\\Instagrad.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikit\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\expressmapper\\1.9.1\\expressmapper.1.9.1.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\mediatypemap.core\\2.3.3\\mediatypemap.core.2.3.3.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.0-rc.2.23480.2\\microsoft.aspnetcore.identity.ui.8.0.0-rc.2.23480.2.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.12\\microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

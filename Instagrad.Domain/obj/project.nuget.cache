@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ut9U8TuuFkGuOEJtlnpiXDE/cznl4pgA2/SvSiPs5zwJXL1gJ21DfeasNCwe7CFLW46qfimeDRwGi9rtWek/eA==",
+  "dgSpecHash": "D+gGXnQK7lq3n+2KlNASl/Euctp2aOjwupzmnjYg+HqSgsLBcjrcXtK2lD6Bst/vek+bhX02HPInOeli56lSfA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Domain\\Instagrad.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

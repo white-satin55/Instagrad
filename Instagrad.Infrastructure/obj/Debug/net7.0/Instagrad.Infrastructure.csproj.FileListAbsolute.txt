@@ -15,3 +15,20 @@ D:\Projects\Instagrad\Instagram 2.0\Instagrad.Infrastructure\obj\Debug\net7.0\In
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Infrastructure\obj\Debug\net7.0\ref\Instagrad.Infrastructure.dll
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Infrastructure.runtimeconfig.json
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.genruntimeconfig.cache
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Infrastructure.deps.json
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Infrastructure.runtimeconfig.json
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Infrastructure.dll
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Infrastructure.pdb
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Domain.dll
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\bin\Debug\net7.0\Instagrad.Domain.pdb
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.AssemblyInfo.cs
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.csproj.CopyComplete
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.dll
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\refint\Instagrad.Infrastructure.dll
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.pdb
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\Instagrad.Infrastructure.genruntimeconfig.cache
+D:\Projects\Instagrad\api\Instagrad.Infrastructure\obj\Debug\net7.0\ref\Instagrad.Infrastructure.dll

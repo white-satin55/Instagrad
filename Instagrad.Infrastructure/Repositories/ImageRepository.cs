@@ -22,6 +22,8 @@ public class ImageRepository : IImageRepository
     public void Add(Image entity)
     {
         _context.Images.Add(entity);
+        //TODO: add image to user repo
+
         _context.SaveChanges();
     }
 

@@ -9,3 +9,14 @@ D:\Projects\Instagrad\Instagram 2.0\Instagrad.Domain\obj\Debug\net7.0\Instagrad.
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Domain\obj\Debug\net7.0\refint\Instagrad.Domain.dll
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.pdb
 D:\Projects\Instagrad\Instagram 2.0\Instagrad.Domain\obj\Debug\net7.0\ref\Instagrad.Domain.dll
+D:\Projects\Instagrad\api\Instagrad.Domain\bin\Debug\net7.0\Instagrad.Domain.deps.json
+D:\Projects\Instagrad\api\Instagrad.Domain\bin\Debug\net7.0\Instagrad.Domain.dll
+D:\Projects\Instagrad\api\Instagrad.Domain\bin\Debug\net7.0\Instagrad.Domain.pdb
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.AssemblyInfoInputs.cache
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.AssemblyInfo.cs
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.dll
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\refint\Instagrad.Domain.dll
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\Instagrad.Domain.pdb
+D:\Projects\Instagrad\api\Instagrad.Domain\obj\Debug\net7.0\ref\Instagrad.Domain.dll

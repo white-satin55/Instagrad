@@ -10,6 +10,7 @@
         "dependencies": {
           "Instagrad.Domain": "1.0.0",
           "Instagrad.Infrastructure": "1.0.0",
+          "MediaTypeMap.Core": "2.3.3",
           "Microsoft.AspNetCore.Identity.UI": "8.0.0-rc.2.23480.2",
           "Microsoft.AspNetCore.OpenApi": "7.0.12",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13",
@@ -44,6 +45,14 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "MediaTypeMap.Core/2.3.3": {
+        "runtime": {
+          "lib/netcoreapp2.0/MimeTypes.dll": {
+            "assemblyVersion": "2.3.2.0",
+            "fileVersion": "2.3.2.0"
           }
         }
       },
@@ -313,6 +322,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "MediaTypeMap.Core/2.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5295drXPri9xReva/rBMO7V07B3NRUmpVjH26co5z72mbh/wL5cY5QcByjfHQ4bJ8IXbkBiOAW2Ep/eqxAdvhQ==",
+      "path": "mediatypemap.core/2.3.3",
+      "hashPath": "mediatypemap.core.2.3.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.UI/8.0.0-rc.2.23480.2": {
       "type": "package",

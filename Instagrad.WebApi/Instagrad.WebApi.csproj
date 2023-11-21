@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediaTypeMap.Core" Version="2.3.3" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.0-rc.2.23480.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.12" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">

@@ -9,9 +9,8 @@ public class ImageConfiguration : IEntityTypeConfiguration<Image>
     public void Configure(EntityTypeBuilder<Image> builder)
     {
         builder.HasKey(im => im.Id);
-        builder.Property(u => u.PublisherLogin);
+        builder.Property(im => im.PublisherLogin);
 
-        //builder.HasOne(im => im.PublisherLogin)
-        //    .WithMany(u => u.Images);       
+        builder.Property(im => im.MediaType);
     }
 }

@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Instagrad.Infrastructure
-build_property.ProjectDir = D:\Projects\Instagrad\Instagram 2.0\Instagrad.Infrastructure\
+build_property.ProjectDir = D:\Projects\Instagrad\api\Instagrad.Infrastructure\

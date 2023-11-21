@@ -1200,11 +1200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
       "projectName": "Instagrad.Infrastructure",
-      "projectPath": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
+      "projectPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Infrastructure\\obj\\",
+      "outputPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1221,8 +1221,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Domain\\Instagrad.Domain.csproj": {
-              "projectPath": "D:\\Projects\\Instagrad\\Instagram 2.0\\Instagrad.Domain\\Instagrad.Domain.csproj"
+            "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj": {
+              "projectPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj"
             }
           }
         }

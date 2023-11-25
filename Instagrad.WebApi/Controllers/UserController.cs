@@ -62,6 +62,8 @@ public class UserController : ControllerBase
         return Created(user.Login, user);
     }
 
+
+
     private async Task Authenticate(string login)
     {
 

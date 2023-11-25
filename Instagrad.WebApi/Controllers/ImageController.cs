@@ -4,11 +4,12 @@ using System.Security.Claims;
 using Instagrad.Domain;
 using Instagrad.Domain.Abstractions;
 using Instagrad.Infrastructure.Repositories;
-
+using Instagrad.WebApi.Model;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 using MimeMapping;
 using MimeTypes;
@@ -31,23 +32,16 @@ public class ImageController : ControllerBase
         _userRepository = userRepository;
     }
 
-    //TODO: fix returning of image list
-    [HttpGet]
-    [Route("{userLogin}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<List<ActionResult<Stream>>> GetImages([FromRoute] string userLogin)
+    private StatusCodeResult UserHasAccess(string userLogin)
     {
         if (!User.Identity.IsAuthenticated)
         {
             return Unauthorized();
         }
 
-        //TODO: make validator
-        #region Validation
-        var user = _userRepository.GetAll().FirstOrDefault(u => u.Login.Equals(userLogin));
+        var user = _userRepository
+            .GetAll()
+            .FirstOrDefault(u => u.Login.Equals(userLogin));
 
         if (user == null)
         {
@@ -59,34 +53,41 @@ public class ImageController : ControllerBase
         {
             return Forbid();
         }
-        #endregion
-
-        int imagesCount = _imageRepository
-            .GetAll()
-            .Count(im => im.PublisherLogin.Equals(userLogin));
-
-        var images = new List<ActionResult<Stream>>();
-
-        for (int i = 0; i < imagesCount; i++)
-        {
-            var image = GetImage(userLogin, i);
-            images.Add(image);
-        }
-
-        return Ok(images);
     }
 
     [HttpGet]
-    [Route("{userLogin}/{index}")]
-    public ActionResult<Stream> GetImage([FromRoute] string userLogin, 
-        [FromRoute] int index)
+    [Route("{userLogin}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<List<string>> GetUserImagesIdList([FromRoute] string userLogin)
+    {
+        if (!User.Identity.IsAuthenticated)
+        {
+            return Unauthorized();
+        }
+
+        var imageIdList = _imageRepository
+            .GetAll()
+            .Where(im => im.PublisherLogin.Equals(userLogin))
+            .Select(im => im.Id.ToString())
+            .ToList();
+
+        return Ok(imageIdList);
+    }
+
+    [HttpGet]
+    [Route("{userLogin}/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<Stream> GetImageById([FromRoute] string id)
     {
         try
         {
             Image image = _imageRepository
                 .GetAll()
-                .Where(im => im.PublisherLogin.Equals(userLogin))
-                .ElementAt(index);
+                .First(im => id.Equals(im.Id.ToString()));
 
             string imageExtension = MimeTypeMap.GetExtension(image.MediaType);
 
@@ -97,7 +98,7 @@ public class ImageController : ControllerBase
         catch (FileNotFoundException e)
         {
             Console.WriteLine(e);
-            return BadRequest(e.Message);
+            return NotFound(e.Message);
         }
     }
 
@@ -129,6 +130,7 @@ public class ImageController : ControllerBase
 
         _imageRepository.Add(image);
 
-        return /*Created(path, image)*/Ok();
+        //return /*Created(path, image)*/Ok();
+        return Created($"/images", GetImageById(image.Id.ToString()));
     }
 }

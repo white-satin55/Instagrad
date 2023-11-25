@@ -5,4 +5,5 @@ namespace Instagrad.Domain.Abstractions;
 public interface IReadonlyRepository<T>
 {
     ICollection<T> GetAll();
+    T GetById(string id);
 }

@@ -19,6 +19,11 @@ public class ImageRepository : IImageRepository
         return _context.Images.ToList();
     }
 
+    public Image GetById(string id)
+    {
+        return _context.Images.First(im => im.Id.ToString().Equals(id));
+    }
+
     public void Add(Image entity)
     {
         _context.Images.Add(entity);

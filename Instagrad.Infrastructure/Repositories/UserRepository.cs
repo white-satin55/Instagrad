@@ -14,11 +14,29 @@ public class UserRepository : IUserRepository
         _context.Dispose();
     }
 
+    /// <summary>
+    /// Gets all users
+    /// </summary>
+    /// <returns>List of all users</returns>
     public ICollection<User> GetAll()
     {
         return _context.Users.ToList().AsReadOnly();
     }
 
+    /// <summary>
+    /// Searches for a user by login
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public User GetById(string id)
+    {
+        return _context.Users.First(u => u.Login.Equals(id));
+    }
+
+    /// <summary>
+    /// Adds new user
+    /// </summary>
+    /// <param name="entity">Data of new user</param>
     public void Add(User entity)
     {
 
@@ -31,12 +49,17 @@ public class UserRepository : IUserRepository
         _context.SaveChanges();
     }
 
+    /// <summary>
+    /// Updates users data
+    /// </summary>
+    /// <param name="entity">Updated users data</param>
+    /// <exception cref="InvalidOperationException">Throws if user with specified id is not found</exception>
     public void Update(User entity)
     {
 
         if (!_context.Users.Any(u => u.Login.Equals(entity.Login)))
         {
-            throw new InvalidOperationException("Object with that id not found");
+            throw new InvalidOperationException("User with that login not found");
         }
 
         var updatingUser = _context.Users.First(u => u.Login.Equals(entity.Login));
@@ -47,6 +70,11 @@ public class UserRepository : IUserRepository
         _context.SaveChanges();
     }
 
+    /// <summary>
+    /// Deletes the user from database
+    /// </summary>
+    /// <param name="entity">Deleting user</param>
+    /// <exception cref="NotImplementedException"></exception>
     public void Delete(User entity)
     {
         throw new NotImplementedException();

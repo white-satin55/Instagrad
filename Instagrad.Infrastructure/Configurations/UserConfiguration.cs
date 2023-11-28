@@ -20,22 +20,13 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasMany(u => u.Images)
             .WithOne()
             .HasForeignKey(im => im.PublisherLogin);
-        //builder.Property(u => u.Images)
-        //    .HasField("_images");
 
         builder.HasMany(u => u.Friends);
-        //builder.Property(u => u.Friends)
-        //    .HasField("_friends");
 
-        builder.HasMany(u => u.IncomingFrendshipRequests)
-            .WithMany(u => u.OutgoingFrendshipRepuests);
-        //builder.Property(u => u.IncomingFrendshipRequests)
-        //    .HasField("_incomingFrendshipRequests");
+        builder.HasMany(u => u.IncomingFriendshipRequests)
+            .WithMany(u => u.OutgoingFriendshipRequests);
 
-        builder.HasMany(u => u.OutgoingFrendshipRepuests)
-            .WithMany(u => u.IncomingFrendshipRequests);
-        //builder.Property(u => u.OutgoingFrendshipRepuests)
-        //    .HasField("_outgoingFrendshipRequests");
-        
+        builder.HasMany(u => u.OutgoingFriendshipRequests)
+            .WithMany(u => u.IncomingFriendshipRequests);
     }
 }

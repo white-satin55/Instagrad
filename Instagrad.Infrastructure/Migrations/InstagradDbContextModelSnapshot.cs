@@ -64,15 +64,15 @@ namespace Instagrad.Infrastructure.Migrations
 
             modelBuilder.Entity("UserUser", b =>
                 {
-                    b.Property<string>("IncomingFrendshipRequestsLogin")
+                    b.Property<string>("IncomingFriendshipRequestsLogin")
                         .HasColumnType("text");
 
-                    b.Property<string>("OutgoingFrendshipRepuestsLogin")
+                    b.Property<string>("OutgoingFriendshipRequestsLogin")
                         .HasColumnType("text");
 
-                    b.HasKey("IncomingFrendshipRequestsLogin", "OutgoingFrendshipRepuestsLogin");
+                    b.HasKey("IncomingFriendshipRequestsLogin", "OutgoingFriendshipRequestsLogin");
 
-                    b.HasIndex("OutgoingFrendshipRepuestsLogin");
+                    b.HasIndex("OutgoingFriendshipRequestsLogin");
 
                     b.ToTable("UserUser");
                 });
@@ -97,13 +97,13 @@ namespace Instagrad.Infrastructure.Migrations
                 {
                     b.HasOne("Instagrad.Domain.User", null)
                         .WithMany()
-                        .HasForeignKey("IncomingFrendshipRequestsLogin")
+                        .HasForeignKey("IncomingFriendshipRequestsLogin")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Instagrad.Domain.User", null)
                         .WithMany()
-                        .HasForeignKey("OutgoingFrendshipRepuestsLogin")
+                        .HasForeignKey("OutgoingFriendshipRequestsLogin")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

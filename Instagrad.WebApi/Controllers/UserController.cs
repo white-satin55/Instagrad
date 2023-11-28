@@ -1,32 +1,107 @@
-﻿using System.Net.Security;
-using System.Security.Claims;
-using System.Security.Principal;
+﻿using System.Security.Claims;
 using Instagrad.Domain;
-using Instagrad.Domain.Abstractions;
 using Instagrad.WebApi.Controllers.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Instagrad.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Instagrad.WebApi.Controllers;
 
 [ApiController]
+[Route("[controller]")]
+[Authorize]
 public class UserController : ControllerBase
 {
     private IUserRepository _userRepository;
+    private User _currentUser; 
 
     public UserController(IUserRepository userRepository)
-    {
+    { 
         _userRepository = userRepository;
+        _currentUser = _userRepository.GetById(User.Identity.Name);
     }
     
-    [HttpPost("singin")]
+    #region Friendship request handling
+    [HttpGet]
+    [Route("send/{userLogin}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> SendFriendshipRequest(string userLogin)
+    {
+        var receiver = _userRepository.GetById(userLogin);
+
+        receiver.ReceiveFriendshipRequest(_currentUser);
+
+        return Ok();
+    }
+
+    [HttpGet]
+    [Route("accept/{userLogin}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> AcceptFriendshipRequest(string userLogin)
+    {
+        _currentUser.AcceptFriendshipRequest(_userRepository.GetById(userLogin));
+
+        return Ok();
+    }
+    #endregion
+
+    //TODO: add correct return of request
+    #region User data handling
+    [HttpGet]
+    [Route("data/{userLogin}/friends")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<ActionResult<List<string>>> GetFriends(string userLogin)
+    {
+        return Ok(
+            _userRepository
+            .GetById(userLogin)
+            .Friends
+            .Select(f => f.Login)
+            .ToList());
+    }
+
+    [HttpGet]
+    [Route("data/{userLogin}/incoming_requests")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<ActionResult<List<string>>> GetIncomingFriendshipRequests(string userLogin)
+    {
+        return Ok(
+            _userRepository
+            .GetById(userLogin)
+            .IncomingFriendshipRequests
+            .Select(f => f.Login)
+            .ToList());
+    }
+
+    [HttpGet]
+    [Route("data/{userLogin}/outgoing_requests")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    public async Task<ActionResult<List<string>>> GetOutgoingFriendshipRequests(string userLogin)
+    {
+        return Ok(
+            _userRepository
+            .GetById(userLogin)
+            .OutgoingFriendshipRequests
+            .Select(f => f.Login)
+            .ToList());
+    }
+    #endregion
+
+    #region Authorization
+    [HttpPost]
+    [Route("singin")]
     public async Task<IActionResult> SingIn([FromForm] SingInRequest request)
     {
-
         var user = _userRepository.GetAll().FirstOrDefault(u =>
             u.CheckCredentials(request.Login, request.Password));
 
@@ -37,12 +112,11 @@ public class UserController : ControllerBase
             return Ok(user);
         }
 
-
-
         return Unauthorized(request);
     }
 
-    [HttpPost("singup")]
+    [HttpPost]
+    [Route("singup")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> SingUp([FromForm] SingUpRequest request)
@@ -62,8 +136,6 @@ public class UserController : ControllerBase
         return Created(user.Login, user);
     }
 
-
-
     private async Task Authenticate(string login)
     {
 
@@ -81,4 +153,5 @@ public class UserController : ControllerBase
             new ClaimsPrincipal(claimsId));
 
     }
+    #endregion
 }

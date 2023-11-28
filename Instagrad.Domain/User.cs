@@ -15,10 +15,17 @@ public class User
     private ICollection<User> _incomingFriendshipRequests = new List<User>();
     private ICollection<User> _outgoingFriendshipRequests = new List<User>();
     
+    /// <summary>
+    /// User login used as id
+    /// </summary>
     public string Login
     {
         get { return _login; }
     }
+
+    /// <summary>
+    /// Readonly list of images uploaded by the user
+    /// </summary>
     public IReadOnlyCollection<Image> Images
     {
         get
@@ -26,6 +33,10 @@ public class User
             return _images.ToList().AsReadOnly();
         }
     }
+
+    /// <summary>
+    /// User's friends list
+    /// </summary>
     public IReadOnlyCollection<User> Friends
     {
         get
@@ -33,11 +44,19 @@ public class User
             return _friends.ToList().AsReadOnly();
         }
     }
-    public IReadOnlyCollection<User> IncomingFrendshipRequests
+
+    /// <summary>
+    /// Users who have a sent a friend request
+    /// </summary>
+    public IReadOnlyCollection<User> IncomingFriendshipRequests
     {
         get { return _incomingFriendshipRequests.ToList().AsReadOnly(); }
     }
-    public IReadOnlyCollection<User> OutgoingFrendshipRepuests
+
+    /// <summary>
+    /// Users to whom the user sent the request
+    /// </summary>
+    public IReadOnlyCollection<User> OutgoingFriendshipRequests
     {
         get { return _outgoingFriendshipRequests.ToList().AsReadOnly(); }
     }   
@@ -48,22 +67,14 @@ public class User
         _password = password;
     }
 
-    //public User(string login,
-    //    string password,      
-    //    ICollection<Image> images = null,
-    //    ICollection<User> friends = null,
-    //    ICollection<User> frendshipRequests = null)
-    //{
-    //    _login = login;
-    //    _password = password;        
-    //    _images = images ?? new List<Image>();
-    //    _friends = friends ?? new List<User>();
-    //    _incomingFriendshipRequests = frendshipRequests ?? new List<User>();
-    //}
-
+    /// <summary>
+    /// Add user from incoming requests to friends list
+    /// </summary>
+    /// <param name="user">User being added</param>
+    /// <exception cref="InvalidOperationException">Throws if specified user is not in incoming requests</exception>
     public void AcceptFriendshipRequest(User user)
     {
-        if (!IncomingFrendshipRequests.Contains(user))
+        if (!IncomingFriendshipRequests.Contains(user))
         {
             throw new InvalidOperationException("This user did not send a friendship request!");
         }
@@ -72,22 +83,14 @@ public class User
         _friends.Add(user);
     }
 
-    public void SendFriendshipRequest(User user)
+    public void ReceiveFriendshipRequest(User user)
     {
-        if (user.Friends.Contains(this))
+        if (IncomingFriendshipRequests.Contains(user))
         {
-            user._incomingFriendshipRequests.Add(this);
-        }
-    }
-
-    public void CancelFriendshipRequest(User user)
-    {
-        if (!_outgoingFriendshipRequests.Contains(user))
-        {
-            throw new InvalidOperationException("This user didn't send request");
+            throw new InvalidOperationException("This user already sent a friendship request!");
         }
 
-        _outgoingFriendshipRequests.Remove(user);
+        _incomingFriendshipRequests.Add(user);
     }
 
     public bool CheckCredentials(string login, string password)

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj": {}
+    "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj": {
+    "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj",
         "projectName": "Instagrad.Domain",
-        "projectPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj",
+        "projectPath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj",
         "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\obj\\",
+        "outputPath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,21 +60,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj": {
+    "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
         "projectName": "Instagrad.Infrastructure",
-        "projectPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
+        "projectPath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\obj\\",
+        "outputPath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,14 +86,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj": {
-                "projectPath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj"
+              "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj": {
+                "projectPath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj"
               }
             }
           }
@@ -144,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

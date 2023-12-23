@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Instagrad.Infrastructure.Migrations
 {
     [DbContext(typeof(InstagradDbContext))]
-    [Migration("20231127180021_RefactorUserData2")]
-    partial class RefactorUserData2
+    [Migration("20231223125800_FixedDomain")]
+    partial class FixedDomain
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

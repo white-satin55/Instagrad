@@ -2,17 +2,13 @@
 using Instagrad.Domain.Abstractions;
 using ExpressMapper;
 using ExpressMapper.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Instagrad.Infrastructure.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : IUserRepository, IDisposable
 {
     private readonly InstagradDbContext _context = new();
-
-    ~UserRepository()
-    {
-        _context.Dispose();
-    }
 
     /// <summary>
     /// Gets all users
@@ -70,13 +66,39 @@ public class UserRepository : IUserRepository
         _context.SaveChanges();
     }
 
-    /// <summary>
-    /// Deletes the user from database
-    /// </summary>
-    /// <param name="entity">Deleting user</param>
-    /// <exception cref="NotImplementedException"></exception>
-    public void Delete(User entity)
+    public User Delete(User entity)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<ICollection<User>> GetAllAsync()
+    {
+        return await _context.Users.ToListAsync();
+    }
+
+    public async Task<User> GetByIdAsync(string id)
+    {
+        return await _context.Users.FirstAsync(u => u.Login.Equals(id));
+    }
+
+    public async Task AddAsync(User entity)
+    {
+        await _context.Users.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(User entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<User> DeleteAsync(User entity)
+    {
+        throw new NotImplementedException();
+    }    
+
+    public void Dispose()
+    {
+        _context.Dispose();
     }
 }

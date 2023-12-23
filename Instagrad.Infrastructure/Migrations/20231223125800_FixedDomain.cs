@@ -5,7 +5,7 @@
 namespace Instagrad.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class RefactorUserData : Migration
+    public partial class FixedDomain : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

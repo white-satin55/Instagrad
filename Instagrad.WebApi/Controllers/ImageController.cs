@@ -1,50 +1,34 @@
-﻿using System.IO;
-using System.Security.Claims;
-
-using Instagrad.Domain;
-using Instagrad.Domain.Abstractions;
+﻿using Instagrad.Domain;
 using Instagrad.Infrastructure.Repositories;
-using Instagrad.WebApi.Model;
-using Microsoft.AspNetCore.Authentication.Cookies;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
-using MimeMapping;
 using MimeTypes;
 
 namespace Instagrad.WebApi.Controllers;
 
 [ApiController]
 [Authorize]
-[Route("[controller]")]
+[Route("images")]
 public class ImageController : ControllerBase
 {
-    private readonly string _localStoragePath = "..\\..\\..\\Storage\\Images";
+    private readonly string _localStoragePath = "..\\..\\Storage\\Images";
     private IImageRepository _imageRepository;
-    private IUserRepository _userRepository;
-    private User _currentUser;
+    private IUserRepository _userRepository;    
 
+    //TODO: add user info
     public ImageController(IImageRepository imageRepository,
         IUserRepository userRepository)
     {
         _imageRepository = imageRepository;
-        _userRepository = userRepository;
-        _currentUser = _userRepository.GetById(User.Identity.Name);
+        _userRepository = userRepository;        
     }
 
     #region Image querries handling
-    private ActionResult UserHasAccess(string userLogin)
+    private async Task<ActionResult> HasAccessToUserAsync(string userLogin)
     {
-        if (!User.Identity.IsAuthenticated)
-        {
-            return Unauthorized();
-        }
-
-        var user = _userRepository
-            .GetAll()
-            .FirstOrDefault(u => u.Login.Equals(userLogin));
+        var user = await _userRepository.GetByIdAsync(userLogin);
 
         if (user == null)
         {
@@ -66,19 +50,21 @@ public class ImageController : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<List<string>> GetUserImagesIdList([FromRoute] string userLogin)
+    public async Task<ActionResult<List<string>>> GetUserImagesIdListAsync([FromRoute] string userLogin)
     {
-        var accessResult = UserHasAccess(_currentUser.Login);
-        
+        var accessResult = await HasAccessToUserAsync(User.Identity.Name);
+
         if (accessResult is not OkResult)
         {
             return accessResult;
         }
 
-        var imageIdList = _imageRepository
-            .GetAll()
+        userLogin ??= User.Identity.Name;
+
+        var imageIdList = (await _imageRepository
+            .GetAllAsync())
             .Where(im => im.PublisherLogin.Equals(userLogin))
-            .Select(im => im.Id.ToString())
+            .Select(im => im.GetEncodedId())
             .ToList();
 
         return Ok(imageIdList);
@@ -90,9 +76,9 @@ public class ImageController : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<Stream> GetImageById([FromRoute] string id)
+    public async Task<ActionResult<Stream>> GetImageByIdAsync([FromRoute] string userLogin, [FromRoute] string id)
     {
-        var accessResult = UserHasAccess(_currentUser.Login);
+        var accessResult = await HasAccessToUserAsync(userLogin);
 
         if (accessResult is not OkResult)
         {
@@ -100,10 +86,9 @@ public class ImageController : ControllerBase
         }
 
         try
-        {
-            Image image = _imageRepository
-                .GetAll()
-                .First(im => id.Equals(im.Id.ToString()));
+        {            
+            Image image = await _imageRepository                
+                .GetByIdAsync(id);
 
             string imageExtension = MimeTypeMap.GetExtension(image.MediaType);
 
@@ -120,8 +105,7 @@ public class ImageController : ControllerBase
     #endregion
 
     #region Image commands handling
-    [HttpPost]
-    [Route("upload")]
+    [HttpPost]    
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> UploadImage(IFormFile file)
@@ -139,13 +123,13 @@ public class ImageController : ControllerBase
         var image = new Image
         {
             Id = Guid.Parse(fileId),
-            PublisherLogin = _currentUser.Login,
+            PublisherLogin = User.Identity.Name,
             MediaType = MimeTypeMap.GetMimeType(extension)
         };
 
         _imageRepository.Add(image);
 
-        return Created($"/images", GetImageById(image.Id.ToString()));
+        return Created($"/images/{User.Identity.Name}/{image.Id}", GetImageByIdAsync(User.Identity.Name, image.GetEncodedId()));
     }
     #endregion
 }

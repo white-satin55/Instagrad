@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pdlDuRDQgCL26JE9WzMbTthiUrzJUpBwr4EXN2Wu5CZnbNt3eQdj8LqmxgymsPJgGgx5cXfVndBvYCKlW/gknQ==",
+  "dgSpecHash": "Khk7y/CfPjyWlvp2s+aQxa2GGrO6bENCn8gmKssT20ZQV7V1/mbTGzMu2OrWmZdtV08SEuqP7NKjnBpjCKMKqw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Instagrad\\api\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
+  "projectFilePath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Infrastructure\\Instagrad.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikit\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\expressmapper\\1.9.1\\expressmapper.1.9.1.nupkg.sha512",

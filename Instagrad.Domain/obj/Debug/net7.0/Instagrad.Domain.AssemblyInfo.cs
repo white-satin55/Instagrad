@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Instagrad.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef36b02876aedb69a1f154ccfdb1b45581f42a0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Instagrad.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Instagrad.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

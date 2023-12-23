@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Instagrad.Domain
-build_property.ProjectDir = D:\Projects\Instagrad\api\Instagrad.Domain\
+build_property.ProjectDir = D:\Projects\Instagrad\backend\Instagrad\Instagrad.Domain\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

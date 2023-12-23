@@ -18,16 +18,13 @@ builder.Services.AddScoped<IUserRepository, UserRepository>()
 
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAuthentication()
-    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
-    options =>
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
     {
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-        options.SlidingExpiration = true;        
-        builder.Configuration.Bind("CookieSettings", options);
+        options.ExpireTimeSpan = TimeSpan.FromHours(1);
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Forbidden/";
     });
-
-
 
 var app = builder.Build();
 

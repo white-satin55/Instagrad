@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D+gGXnQK7lq3n+2KlNASl/Euctp2aOjwupzmnjYg+HqSgsLBcjrcXtK2lD6Bst/vek+bhX02HPInOeli56lSfA==",
+  "dgSpecHash": "uERe9lGtH6ryihMrlRjeibc0Uuyn4fR1ymqLFG8fyoTy0aiBIRCpdhRY6FA1gdHvBmzujt0b4mdRXXTmDZ6CeA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Instagrad\\api\\Instagrad.Domain\\Instagrad.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\Instagrad\\backend\\Instagrad\\Instagrad.Domain\\Instagrad.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
